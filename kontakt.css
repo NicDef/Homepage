@@ -1,0 +1,107 @@
+:root {
+	--bg-color: rgb(20, 20, 20);
+	--card-color: #3a4549;
+}
+
+body {
+	background-color: black !important;
+	font-family: 'Rubik', sans-serif;
+}
+
+main {
+	background-color: #3a4549;
+	display: flex;
+	align-items: left;
+	flex-direction: column;
+	justify-content: top;
+	color: rgb(236, 236, 236);
+}
+
+/*Pop up message*/
+#pop-up {
+	position: absolute;
+	right: 0;
+	margin-top: 70px;
+	margin-right: 20px;
+	padding: 10px;
+	background-color: transparent;
+	border-radius: 10px;
+	min-width: 20rem;
+	max-width: 20rem;
+	overflow: hidden;
+	visibility: hidden;
+}
+
+#response {
+	font-weight: bold;
+	margin-left: 10px;
+}
+
+/* Style for the form container */
+.form-container {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+
+/* Style for the form */
+form {
+	border: 1px solid #ccc;
+	padding: 20px;
+	text-align: center;
+	width: 50%;
+}
+
+/* Style for the form inputs */
+input[type='text'],
+input[type='email'],
+textarea {
+	width: 100%;
+	padding: 5px 5px !important;
+	margin: 8px 0;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+	border-radius: 4px;
+	resize: vertical;
+}
+
+/* Style for the submit button */
+input[type='submit'] {
+	width: 100%;
+	background-color: #4caf50;
+	color: white;
+	padding: 14px 20px;
+	margin: 8px 0;
+	border: none;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+/* Style for the submit button on hover */
+input[type='submit']:hover {
+	background-color: #45a049;
+}
+
+@media only screen and (max-width: 600px) {
+	#pop-up {
+		margin-top: 35px;
+		margin-right: 5%;
+		padding: 5px;
+		min-width: 90%;
+		max-width: 90%;
+	}
+
+	form {
+		width: 90%;
+		position: absolute;
+		top: 0;
+		margin-top: 5em;
+	}
+
+	.home {
+		width: 100vw !important;
+		justify-content: center !important;
+		left: 0 !important;
+	}
+}

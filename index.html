@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Nicolas Defée</title>
+
+		<link rel="stylesheet" href="style.css" />
+		<link rel="stylesheet" href="global.css" />
+		<script src="script.js" defer></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" />
+		<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet" />
+		<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet" />
+	</head>
+	<body data-nav="false">
+		<!-- <div class="curzr" hidden>
+			<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+				<path
+					class="inner"
+					d="M25,30a5.82,5.82,0,0,1-1.09-.17l-.2-.07-7.36-3.48a.72.72,0,0,0-.35-.08.78.78,0,0,0-.33.07L8.24,29.54a.66.66,0,0,1-.2.06,5.17,5.17,0,0,1-1,.15,3.6,3.6,0,0,1-3.29-5L12.68,4.2a3.59,3.59,0,0,1,6.58,0l9,20.74A3.6,3.6,0,0,1,25,30Z"
+					fill="#F2F5F8"
+				/>
+				<path
+					class="outer"
+					d="M16,3A2.59,2.59,0,0,1,18.34,4.6l9,20.74A2.59,2.59,0,0,1,25,29a5.42,5.42,0,0,1-.86-.15l-7.37-3.48a1.84,1.84,0,0,0-.77-.17,1.69,1.69,0,0,0-.73.16l-7.4,3.31a5.89,5.89,0,0,1-.79.12,2.59,2.59,0,0,1-2.37-3.62L13.6,4.6A2.58,2.58,0,0,1,16,3m0-2h0A4.58,4.58,0,0,0,11.76,3.8L2.84,24.33A4.58,4.58,0,0,0,7,30.75a6.08,6.08,0,0,0,1.21-.17,1.87,1.87,0,0,0,.4-.13L16,27.18l7.29,3.44a1.64,1.64,0,0,0,.39.14A6.37,6.37,0,0,0,25,31a4.59,4.59,0,0,0,4.21-6.41l-9-20.75A4.62,4.62,0,0,0,16,1Z"
+					fill="#111920"
+				/>
+			</svg>
+		</div> -->
+
+		<main>
+			<div class="socials animate__animated animate__fadeIn">
+				<a href="https://www.instagram.com/nicolas.defee/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+				<a href="https://dsc.bio/reimbiest" target="_blank"><i class="fa-brands fa-discord"></i></a>
+				<a href="https://github.com/NicDef" target="_blank"><i class="fa-brands fa-github"></i></a>
+			</div>
+
+			<div class="introduction">
+				<p value="5" class="heading fugaz-font animate__animated animate__fadeIn">Hi!<br />Ich bin <strong>Nicolas</strong></p>
+				<p class="info rubik-font animate__animated animate__fadeInUp">Ich bin 15 Jahre alt und programmiere gern in meiner Freizeit.</p>
+				<p class="info rubik-font animate__animated animate__fadeInUp">Mir macht es Spaß komplizierte Probleme zu lösen und dabei neues Wissen zu erlangen.</p>
+				<a class="lined" href="ueber_mich.html"
+					><p class="more rubik-font animate__animated animate__fadeInUp">Erfahre mehr <i class="fa-solid fa-arrow-right-long"></i></p>
+				</a>
+			</div>
+		</main>
+		<nav>
+			<div id="nav-links">
+				<a class="nav-link" href="./ueber_mich.html">
+					<h2 class="nav-link-label rubik-font">Über mich</h2>
+					<img class="nav-link-image" src="./img/Ueber_Mich.jpg" />
+				</a>
+				<a class="nav-link" href="./projekte.html">
+					<h2 class="nav-link-label rubik-font">Projekte</h2>
+					<img class="nav-link-image" src="./img/Projekte.jpg" />
+				</a>
+				<a class="nav-link" href="./kontakt.html">
+					<h2 class="nav-link-label rubik-font">Kontakt</h2>
+					<img class="nav-link-image" src="./img/Kontakt.jpg" />
+				</a>
+			</div>
+		</nav>
+
+		<button class="animate__animated animate__backInUp" id="nav-toggle" type="button" onclick="toggleNav()">
+			<i class="open fa-solid fa-bars-staggered"></i>
+			<i class="close fa-solid fa-xmark"></i>
+		</button>
+
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/6e8f13e102.js" crossorigin="anonymous"></script>
+	</body>
+</html>

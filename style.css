@@ -1,0 +1,73 @@
+body {
+	background-color: black;
+}
+
+main {
+	background-image: url('./img/Main.jpg');
+}
+
+.introduction {
+	position: absolute;
+	left: 10%;
+	right: 10%;
+	top: clamp(10%, 30%, 25vh);
+}
+
+.introduction > p,
+.lined > p,
+i {
+	margin: 0px;
+	color: white;
+}
+
+.introduction > .heading {
+	font-size: clamp(50px, 6rem, 5vw);
+	font-weight: bolder;
+	line-height: 1;
+	margin-bottom: 3rem;
+}
+
+@media (hover: hover) {
+	.introduction > .heading {
+		text-shadow: rgba(0, 0, 0, 0.363) 5px 2px 10px;
+	}
+}
+
+strong {
+	position: relative;
+}
+
+strong::before {
+	/* Highlight color */
+	background-color: #46a2b9;
+
+	content: '';
+	position: absolute;
+	width: calc(100% + 4px);
+	height: 60%;
+	left: -2px;
+	bottom: 0;
+	z-index: -1;
+	transform: rotate(-2deg);
+	opacity: 0.8;
+}
+
+.introduction > .info {
+	font-size: 16px;
+}
+
+.introduction > a {
+	display: flex;
+	align-items: center;
+}
+
+.introduction > a > .more {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+
+.introduction > a > .more > i {
+	position: absolute;
+	padding-left: 85px;
+}

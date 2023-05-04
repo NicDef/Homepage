@@ -1,0 +1,246 @@
+:root {
+	--secondary: #232425 !important;
+	--purple: rgb(123, 31, 162);
+	--violet: rgb(103, 58, 183);
+	--pink: rgb(244, 143, 177);
+}
+
+main {
+	height: auto !important;
+}
+
+.grid-container {
+	display: grid;
+	grid-template-columns: repeat(1, auto 5fr);
+	grid-template-rows: repeat(1, 40vh 60vh);
+}
+
+section {
+	overflow: hidden;
+}
+
+section[id='picture'] {
+	width: 100%;
+	background-color: var(--secondary);
+	overflow: hidden;
+}
+
+section[id='picture'] img {
+	height: 100%;
+	width: auto;
+}
+
+section[id='introduction'] {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+/* Magic Animation */
+@keyframes background-pan {
+	from {
+		background-position: 0% center;
+	}
+
+	to {
+		background-position: -200% center;
+	}
+}
+
+@keyframes scale {
+	from,
+	to {
+		transform: scale(0);
+	}
+
+	50% {
+		transform: scale(1);
+	}
+}
+
+@keyframes rotate {
+	from {
+		transform: rotate(0deg);
+	}
+
+	to {
+		transform: rotate(180deg);
+	}
+}
+
+p .magic {
+	display: inline-block;
+	position: relative;
+}
+
+p .magic .magic-star {
+	--size: clamp(10px, 1.5vw, 20px);
+
+	animation: scale 700ms ease forwards;
+	display: block;
+	height: var(--size);
+	left: var(--star-left);
+	position: absolute;
+	top: var(--star-top);
+	width: var(--size);
+}
+
+p .magic .magic-star svg {
+	animation: rotate 1000ms linear infinite;
+	display: block;
+	opacity: 0.7;
+}
+
+p .magic .magic-star svg path {
+	fill: var(--violet);
+}
+
+p .magic .magic-text {
+	animation: background-pan 3s linear infinite;
+	background: linear-gradient(to right, var(--purple), var(--violet), var(--pink), var(--purple));
+	background-size: 200%;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	white-space: nowrap;
+}
+/*********/
+
+/*Information*/
+section[id='information'] {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+section[id='information'] h2 {
+	margin-bottom: 40px;
+}
+
+section[id='information'] ul {
+	list-style: circle;
+	width: 100%;
+}
+
+section[id='information'] ul li:not(:last-child) {
+	margin-bottom: 20px;
+	width: 100%;
+}
+
+ul li:hover {
+	cursor: default;
+}
+
+section[id='information'] ul hr {
+	width: 50%;
+	margin-right: calc(56.547px + 20px);
+}
+
+/*Skills*/
+section[id='skills'] {
+	min-height: max-content;
+	display: flex;
+	align-items: center;
+	border-top: 2px var(--secondary) solid;
+	border-left: 2px var(--secondary) solid;
+}
+
+.skills-container {
+	width: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.skill {
+	margin: 30px 0;
+	display: flex;
+	align-items: center;
+}
+
+.skill .skill-bar-max {
+	background: var(--secondary);
+	border-radius: 0px 25px 25px 0px;
+}
+
+.skill img {
+	height: auto;
+	width: 30px;
+	margin-right: 10px;
+}
+
+.skill-bar {
+	height: 30px;
+	background-color: #37975f;
+	/* border-top-right-radius: 25px;
+	border-bottom-right-radius: 25px; */
+}
+
+@media only screen and (max-width: 600px) {
+	body {
+		overflow: auto !important;
+	}
+
+	section:nth-child(odd) {
+		background-color: var(--secondary) !important;
+	}
+
+	/* Picture */
+	section[id='picture'] {
+		display: none;
+	}
+
+	/* Introduction */
+	section[id='introduction'] {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		padding-top: 40px !important;
+	}
+
+	section {
+		padding: 30px !important;
+		min-height: 50vh !important;
+		max-height: 50vh !important;
+	}
+
+	/* Information */
+	section[id='information'] ul {
+		margin: 0px;
+		padding: 0px;
+		list-style: decimal;
+	}
+
+	section[id='information'] ul li {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	section[id='information'] ul li:not(:last-child) {
+		margin-bottom: 10px !important;
+	}
+
+	section[id='information'] ul hr {
+		width: 50%;
+		margin-right: auto !important;
+	}
+
+	.grid-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.skill {
+		margin: 15px 0 !important;
+	}
+
+	body[data-nav='false'] > nav {
+		transform: translateY(-133%) !important; /* set it behind last section*/
+	}
+
+	body[data-nav='true'] > main {
+		transform: translateY(-66%) !important; /* Total heigth 150vh (3 sections with min-heigth and max-height of 50vh) */
+	}
+}

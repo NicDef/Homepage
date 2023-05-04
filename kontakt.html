@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>ND - Kontakt</title>
+
+		<link rel="stylesheet" href="kontakt.css" />
+		<link rel="stylesheet" href="global.css" />
+		<script src="script.js" defer></script>
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rubik&display=swap" />
+		<link href="https://fonts.googleapis.com/css2?family=Fugaz+One&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+		<!-- Include the Bootstrap CSS -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" />
+	</head>
+	<body>
+		<main>
+			<div class="home animate__animated animate__fadeIn">
+				<a href="./index.html"><i class="fa-solid fa-home"></i></a>
+			</div>
+
+			<div id="pop-up" class="border border-light animate__animated"><i id="responseIcon" class="fa-solid fa-x"></i><span id="response">Fehler</span></div>
+
+			<div class="form-container">
+				<form action="submit-form.php" method="post" class="mx-auto">
+					<div class="form-group text-start">
+						<label for="name">Name:</label>
+						<input type="text" class="form-control" id="name" name="name" required />
+					</div>
+					<div class="form-group text-start">
+						<label for="email">Email:</label>
+						<input type="email" class="form-control" id="email" name="email" required />
+					</div>
+					<div class="form-group text-start">
+						<label for="message">Message:</label>
+						<textarea class="form-control" id="message" name="message" rows="5" maxlength="255" lang="de" required></textarea>
+						<div id="charNum">0/255</div>
+					</div>
+					<button type="submit" class="btn btn-primary">Submit</button>
+				</form>
+			</div>
+		</main>
+
+		<nav>
+			<div id="nav-links">
+				<a class="nav-link" href="./ueber_mich.html">
+					<h2 class="nav-link-label rubik-font">Über mich</h2>
+					<img class="nav-link-image" src="./img/Ueber_Mich.jpg" />
+				</a>
+				<a class="nav-link" href="./projekte.html">
+					<h2 class="nav-link-label rubik-font">Projekte</h2>
+					<img class="nav-link-image" src="./img/Projekte.jpg" />
+				</a>
+				<a class="nav-link" href="./kontakt.html">
+					<h2 class="nav-link-label rubik-font">Kontakt</h2>
+					<img class="nav-link-image" src="./img/Kontakt.jpg" />
+				</a>
+			</div>
+		</nav>
+
+		<button class="animate__animated animate__backInUp" id="nav-toggle" type="button" onclick="toggleNav()">
+			<i class="open fa-solid fa-bars-staggered"></i>
+			<i class="close fa-solid fa-xmark"></i>
+		</button>
+		<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+		<script src="https://kit.fontawesome.com/6e8f13e102.js" crossorigin="anonymous"></script>
+	</body>
+	<script>
+		if (window.history.replaceState) {
+			window.history.replaceState(null, null, window.location.href);
+		}
+
+		$(document).ready(function () {
+			$('#message').on('keyup', function () {
+				var charNum = $('#message').val().length;
+				$('#charNum').text(charNum + '/255');
+			});
+		});
+
+		function getCookie(name) {
+			const value = `; ${document.cookie}`;
+			const parts = value.split(`; ${name}=`);
+			if (parts.length === 2) return parts.pop().split(';').shift();
+		}
+
+		try {
+			var response = getCookie('response').replaceAll('+', ' ');
+
+			if (response == '') throw new Error('Kein gültiger Cookie');
+
+			document.cookie = 'response' + '=' + ''; // Cookie wieder löschen
+
+			document.getElementById('response').innerHTML = response; // Antwort anzeigen
+
+			document.getElementById('pop-up').style.visibility = 'visible'; // Pop-up sichtbar machen
+
+			// Styling
+			if (response == 'Nachricht wurde gesendet') {
+				document.getElementById('pop-up').style.color = `var(--bs-success-text)`;
+				document.getElementById('pop-up').style.backgroundColor = `var(--bs-success)`;
+				document.getElementById('responseIcon').classList.remove('fa-x');
+				document.getElementById('responseIcon').classList.add('fa-check');
+			} else if (response) {
+				document.getElementById('pop-up').style.color = `var(--bs-danger-text: #b02a37)`;
+				document.getElementById('pop-up').style.backgroundColor = `var(--bs-danger: #dc3545)`;
+				document.getElementById('responseIcon').classList.remove('fa-check');
+				document.getElementById('responseIcon').classList.add('fa-x');
+			}
+
+			// Animationen
+			document.getElementById('pop-up').classList.remove('animate__fadeOut');
+			document.getElementById('pop-up').classList.add('animate__fadeInRight');
+
+			setTimeout(function () {
+				document.getElementById('pop-up').classList.remove('animate__fadeInRight');
+				document.getElementById('pop-up').classList.add('animate__fadeOut'); // Pop-up unsichtbar machen
+			}, 2000);
+		} catch (err) {
+			console.log(err);
+		}
+	</script>
+</html>
