@@ -12,7 +12,7 @@
     $name = $_POST["name"];
     $email = $_POST["email"];
     $ip = $_SERVER['REMOTE_ADDR'];
-    $message = "<h1>Hallo Nicolas!</h1><p>Sie haben soeben eine Nachricht von Ihrer Webseite erhalten: </p><br><br><i>" . $_POST["message"] . "</i><br><br><p><u>Gesendet von:</u><br>EMail: <b>" . $email . "</b><br>IPv4: <b>" . $ip . "</b></p>";
+    $message = "";
 
     $mail = new PHPMailer(true);
     try {
@@ -28,7 +28,7 @@
 
       // Recipients
       $mail->setFrom($email, $name);
-      $mail->addAddress('nicolas.defee@gmx.de', 'Nicolas Defée');   // Add a recipient
+      $mail->addAddress('', '');   // Add a recipient
 
       // Content
       $mail->isHTML(true);                                          // Set email format to HTML
